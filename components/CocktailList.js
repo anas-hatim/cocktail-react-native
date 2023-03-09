@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Text, View,StyleSheet, FlatList, Image} from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image, TouchableOpacity} from 'react-native';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 
 export default function CocktailList() {
   const [cocktails, setCocktails] = useState([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail')
@@ -17,12 +21,15 @@ export default function CocktailList() {
       });
   }, []);
 
+  console.log('ICIIIIIIIII')
+  console.log(response.data.drinks)
+
   const renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
-      <Image style={styles.image} source={{ uri: item.strDrinkThumb }}/>
-      <Text style={styles.title}>{item.strDrink}</Text>
-    </View>
-  );
+    <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('CocktailDetails', { id: item.idDrink })}>
+    <Image style={styles.image} source={{ uri: item.strDrinkThumb }}/>
+    <Text style={styles.title}>{item.strDrink}</Text>
+    </TouchableOpacity>
+    );
 
   return (
     <View style={styles.container}>
