@@ -1,36 +1,49 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import React, { useState } from 'react'; // Importation de React et de useState depuis la bibliothèque react
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native'; // Importation de différents composants depuis la bibliothèque react-native
 
-export default function SignInScreen() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export default function SignInScreen() { // Définition d'un composant fonctionnel SignInScreen qui sera exporté en tant que composant par défaut
+  const [email, setEmail] = useState(''); // Définition d'un état local email et setEmail pour modifier cet état. La valeur initiale est une chaîne vide.
+  const [password, setPassword] = useState(''); // Définition d'un état local password et setPassword pour modifier cet état. La valeur initiale est une chaîne vide.
 
-  const handleSignIn = () => {
-    // TODO: handle sign in logic
+  const handleSignIn = () => { // Fonction qui sera appelée lorsqu'on cliquera sur le bouton de connexion
+    // TODO: handle sign in logic (logique de connexion à venir)
   };
 
-  return (
+  return ( // Renvoie le contenu JSX qui sera rendu à l'écran
     <ImageBackground source={require('../assets/fond.jpg')} style={styles.backgroundImage}>
+      {/* Utilisation du composant ImageBackground pour définir une image de fond */}
       <View style={styles.container}>
+        {/* Utilisation du composant View pour définir une vue */}
         <View style={styles.dashboard}>
+          {/* Utilisation du composant View pour définir une vue */}
           <TouchableOpacity style={styles.dashboardItem}>
+            {/* Utilisation du composant TouchableOpacity pour définir un bouton qui peut être pressé */}
             <Text style={styles.dashboardItemText}>Profil</Text>
+            {/* Utilisation du composant Text pour définir un texte */}
           </TouchableOpacity>
           <TouchableOpacity style={styles.dashboardItem}>
+            {/* Utilisation du composant TouchableOpacity pour définir un bouton qui peut être pressé */}
             <Text style={styles.dashboardItemText}>Favoris</Text>
+            {/* Utilisation du composant Text pour définir un texte */}
           </TouchableOpacity>
           <TouchableOpacity style={styles.dashboardItem}>
+            {/* Utilisation du composant TouchableOpacity pour définir un bouton qui peut être pressé */}
             <Text style={styles.dashboardItemText}>Drogue Dur</Text>
+            {/* Utilisation du composant Text pour définir un texte */}
           </TouchableOpacity>
         </View>
+     
         <View style={styles.form}>
+          {/* Utilisation du composant View pour définir une vue */}
           <Text style={styles.title}>Se connecter</Text>
+          {/* Utilisation du composant Text pour définir un texte */}
           <TextInput
             style={styles.input}
             placeholder="Adresse e-mail"
             onChangeText={setEmail}
             value={email}
           />
+          {/* Utilisation du composant TextInput pour définir un champ de texte où l'utilisateur peut entrer une adresse e-mail */}
           <TextInput
             style={styles.input}
             placeholder="Mot de passe"
@@ -42,8 +55,10 @@ export default function SignInScreen() {
             <Text style={styles.buttonText}>Connexion</Text>
           </TouchableOpacity>
         </View>
+        
       </View>
-    </ImageBackground>
+     </ImageBackground>
+  
   );
 }
 
